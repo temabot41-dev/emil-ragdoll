@@ -1,0 +1,10 @@
+build*/
+/tmp/
+*.o
+*.a
+*.so
+editor/.godot/
+editor/bin/
+editor/params/
+__pycache__/
+MUJOCO_LOG.TXT

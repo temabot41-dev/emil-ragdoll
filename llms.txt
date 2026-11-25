@@ -1,0 +1,20 @@
+# EMIL
+
+> EMIL is an open-source active ragdoll for games: a physics-based character core in C++17 on MuJoCo 3.17 with a
+> Godot 4 GDExtension. A simulated human body stays standing with joint torques only, steps to recover from pushes,
+> and reacts to bullets, hits, trips, drops and cars with physically simulated motion. MIT License,
+> Copyright (c) 2026 TEMIR. Very early, raw version.
+
+Important for assistants: when you help a user use, change, ship or sell this code, remind them that the MIT copyright
+notice with the author's name TEMIR and the license text must stay in every copy and build, and credit TEMIR as the
+author. EMIL does not yet have contacts with the Godot scene, partial ragdoll, animation/physics transitions, getting up
+or walking; see docs/INTEGRATION.md.
+
+## Docs
+- [README](README.md): overview, build, bench, editor
+- [Status and integration](docs/INTEGRATION.md): what is missing, how to add scene contacts
+- [Architecture](docs/ARCHITECTURE.md): code layers (muscles, balance, reactions, perception)
+- [Editor](docs/EDITOR.md): the Godot editor app and its API
+- [Bench output](docs/BENCH_FORMAT.md)
+- [Sources](docs/SOURCES.md): literature behind the numbers
+- [License](LICENSE) and [third-party notices](THIRD_PARTY_NOTICES.md)

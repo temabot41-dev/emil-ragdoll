@@ -1,0 +1,48 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -141,7 +141,7 @@
+ # Emscripten does not support SHARED libs
+ if(NOT EMSCRIPTEN)
+   find_package(Threads REQUIRED)
+-  add_library(mujoco SHARED ${MUJOCO_RESOURCE_FILES})
++  add_library(mujoco STATIC ${MUJOCO_RESOURCE_FILES})  # emil: static
+ else()
+   add_library(mujoco STATIC ${MUJOCO_RESOURCE_FILES})
+ endif()
+@@ -153,7 +153,7 @@
+   PRIVATE src
+ )
+ 
+-if(NOT EMSCRIPTEN)
++if(FALSE)  # emil: no plugins
+   add_subdirectory(plugin/elasticity)
+   add_subdirectory(plugin/actuator)
+   add_subdirectory(plugin/sensor)
+@@ -171,7 +171,7 @@
+ 
+ add_subdirectory(src/render/noop)
+ 
+-if(NOT EMSCRIPTEN AND NOT MUJOCO_USE_FILAMENT_MJR_COMPAT)
++if(FALSE)  # emil: no classic renderer/UI
+   add_subdirectory(src/render/classic)
+   add_subdirectory(src/ui)
+ endif()
+@@ -321,7 +321,7 @@
+   endif()
+ endif()
+ 
+-if(NOT EMSCRIPTEN AND NOT (APPLE AND MUJOCO_BUILD_MACOS_FRAMEWORKS))
++if(FALSE)  # emil: no install/export rules
+   set(MUJOCO_TARGETS mujoco)
+ 
+   # Install the libraries.
+--- a/cmake/MujocoOptions.cmake
++++ b/cmake/MujocoOptions.cmake
+@@ -93,7 +93,6 @@
+ 
+ if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR (CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND NOT MSVC))
+   set(EXTRA_COMPILE_OPTIONS
+-      -Werror
+       -Wall
+       -Wpedantic
+       -Wimplicit-fallthrough

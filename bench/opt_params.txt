@@ -1,0 +1,12 @@
+# Tuned parameters of the picker (`emil_bench opt <name> --list bench/opt_params.txt`).
+# Line: name [min max [start]]; missing min, max, start come from kParamDefs (min, max, default value).
+# Step and balance parameters only: no switches (flags), no reactions.
+stiff_scale
+knee_bend
+ankle_dorsi
+com_fwd
+toe_out
+stance_w
+zmp_frac
+toe_land
+assist 0 1 0.3

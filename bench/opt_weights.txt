@@ -1,0 +1,17 @@
+# Cost weights of the picker (`--weights file`); cost = sum of weight x term, the terms are also logged (log.csv, control.csv).
+# stag_fall   1 - fraction stood on the 20 stagger scenes (impulses x our mass / 61.6 = the same velocity change,
+#             random push time 1.5..4 s, every second body varied: height 1.65-1.95, mass 60-100, build -0.5..0.5) [main term]
+# stag_phase  mean distance of the stagger scenes from the stagger target table (lift, swing, length, capture point
+#             behind the ankle, knee, trunk, pelvis drop, number of steps), in band widths (+-30 %), 0..3; a bot that fell scores 2..3
+#             by how close its first two steps were, a bot that stood scores below 2                          [main term]
+# hold, steps, stand: constraints, penalty = weight x how much worse than the START set on the same scenes (never a reward):
+#   hold   fraction of the no-step forces (ladder step 1: fwd 15, back 20, side 25, diagonal 30 N s) NOT held without a step
+#   steps  fraction of the 16 commanded steps (ladder step 4) not stood
+#   stand  quiet stand outside the rest band (width 0.21-0.26 m, sway 2-6 mm, pelvis forward 0.05-0.08 m), 0..3
+# bound = distance of a raw candidate outside [0, 1]
+stag_fall=10
+stag_phase=4
+hold=3
+steps=3
+stand=2
+bound=5

@@ -1,0 +1,22 @@
+# Cross toolchain for Android arm64 (API 28) on an arm64 Linux host: the system clang with the NDK r27c sysroot
+# (the NDK's own prebuilt clang is x86_64; bin/clang here is a local wrapper that adds the NDK sysroot and runtime).
+set(CMAKE_SYSTEM_NAME Linux)
+set(CMAKE_SYSTEM_PROCESSOR aarch64)
+if(NOT DEFINED ENV{ANDROID_NDK})
+  set(ENV{ANDROID_NDK} $ENV{HOME}/android/android-ndk-r27c)  # default install location on the build host
+endif()
+set(NDK_ROOT $ENV{ANDROID_NDK})
+set(NDK_BIN ${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/bin)
+set(CMAKE_C_COMPILER ${NDK_BIN}/clang)
+set(CMAKE_CXX_COMPILER ${NDK_BIN}/clang++)
+set(CMAKE_C_COMPILER_TARGET aarch64-linux-android28)
+set(CMAKE_CXX_COMPILER_TARGET aarch64-linux-android28)
+set(CMAKE_AR ${NDK_BIN}/llvm-ar)
+set(CMAKE_RANLIB ${NDK_BIN}/llvm-ranlib)
+set(CMAKE_STRIP ${NDK_BIN}/llvm-strip)
+set(CMAKE_SYSROOT ${NDK_ROOT}/toolchains/llvm/prebuilt/linux-x86_64/sysroot)
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
+set(CMAKE_FIND_ROOT_PATH_MODE_LIBRARY ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_INCLUDE ONLY)
+set(CMAKE_FIND_ROOT_PATH_MODE_PACKAGE ONLY)

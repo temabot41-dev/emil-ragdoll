@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use EMIL, please cite it and keep the MIT copyright notice of TEMIR."
+title: "EMIL: physics-based active ragdoll character core for Godot 4 (C++17, MuJoCo)"
+abstract: >-
+  EMIL is an open-source active ragdoll: a physics-based character controller that keeps a simulated human body
+  standing with joint torques only, takes recovery steps after pushes, and reacts to bullets, hits, trips, drops and
+  cars with procedural, physically simulated motion. Written in C++17 on MuJoCo 3.17, with a Godot 4 GDExtension and
+  an Android editor app. Very early version.
+type: software
+authors:
+  - name: TEMIR
+license: MIT
+version: 1.0.0
+date-released: 2026-11-25
+repository-code: "https://github.com/temabot41-dev/emil-ragdoll"
+keywords:
+  - active ragdoll
+  - ragdoll physics
+  - physics-based character animation
+  - procedural animation
+  - character controller
+  - balance control
+  - push recovery
+  - biped
+  - Godot
+  - Godot 4
+  - GDExtension
+  - MuJoCo
+  - game physics
+  - hit reactions
